@@ -1,0 +1,50 @@
+{% extends "base.html" %}
+
+{% block style %}
+    <style>
+        h1{
+            font-family: Algerian, serif;
+        }
+        .container p, .container ul{
+            text-align: left;
+        }
+        hr{
+            background: #9fcdff;
+        }
+    </style>
+{% endblock %}
+
+{% block title %} Help {% endblock %}
+
+{% block content %}
+    <div class="container">
+		<h1>CCFRS</h1>
+        <hr>
+        <h4>Introduction</h4>
+        <p class="text-primary">Is a transactional security system. It is implemented into credit card systems in order to reduce risk of fraud by altering account details after every transaction.
+        It can be integrated into a Point Of Sale Terminal (POST) or into an E-commerce website when making payments.</p>
+        <br>
+        <h4>Usage</h4>
+        <p class="text-primary">Operations which are integrated into this system are:</p>
+        <ul>
+            <li>Create an account to use for transactions</li>
+            <li>Perform transactions by using account details</li>
+            <li>Send feedback to the System administrators</li>
+            <li>Request blocking of your account</li>
+        </ul>
+        <hr>
+        <h3 id="feed">Send Feedback</h3>
+		<form align="left" action="/feedback" method="POST">
+			<div class="form-group">
+				<label class="form-control-plaintext" for="email">Email</label>
+				<input type="text" class="form-control" id="email" name="email" required>
+				<label class="form-control-plaintext" for="msg">Message</label>
+                <textarea class="form-control" id="msg" name="msg" required></textarea>
+				<br/>
+                <center>
+                    <button type="submit" class="btn btn-primary">Send</button>
+                </center>
+			</div>
+		</form>
+	</div>
+{% endblock %}

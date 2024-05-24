@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+
+{% block title %} Alert {% endblock %}
+
+{% block content %}
+    <div class="container">
+		<h1>ALERT PORTAL</h1>
+        <p class="text-danger">This page is used to request the blocking of your account if you feel your account is at risk or for any other reason.
+            Use of this option can warrant police investigations.</p>
+		<hr>
+		<form align="left" action="/confirm" method="POST">
+			<div class="form-group">
+				<label class="form-control-plaintext" for="accNum">Account Number</label>
+				<input type="number" class="form-control" id="accNum" name="accNum" placeholder="Enter account number" required>
+				<label class="form-control-plaintext" for="password">Password</label>
+				<input type="password" class="form-control" id="password" name="password" placeholder="Enter password" required>
+                <label class="form-control-plaintext" for="code">Verification code</label>
+				<input type="text" class="form-control" id="code" name="code" placeholder="Enter verification code" required>
+				<label class="form-control-plaintext" for="reason">Reason (Optional)</label>
+                <textarea class="form-control" id="reason" name="reason" placeholder="Enter a reason why you think your account has been compromised"></textarea>
+				<br/>
+                <center>
+                    <button type="submit" class="btn btn-primary">Confirm</button>
+                </center>
+			</div>
+		</form>
+	</div>
+{% endblock %}

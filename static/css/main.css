@@ -1,0 +1,67 @@
+@charset "utf-8";
+
+/* Body */
+body {
+	font-family: Cambria, "Hoefler Text", "Liberation Serif", Times, "Times New Roman", serif;
+	background-image: url("../media/cover.jpeg");
+	background-size: 100% 100%;
+	background-repeat: no-repeat;
+	background-attachment: fixed;
+	margin: 0;
+}
+.container{
+	text-align: center;
+	background: #e0e0e0;
+	border-radius: 20px;
+	margin-top: 20px;	
+	padding-bottom: 2%;
+}
+@media all and (max-width:2000px){
+	.container{
+		width: 90%;
+	}
+}
+
+hr {
+	background: grey;
+}
+
+/* Contacts */
+.modal{
+	position: absolute;
+	margin-top: 0;
+	top: 50%;
+	transform: translate(0%, -25%);
+}
+.modal-header{
+	color: white;
+	background-color: #343a40;
+}
+.modal button{
+	color: red;
+}
+.modal table *{
+	border: hidden;
+}
+.modal tr {
+	text-align: center;
+}
+td .lead {
+	margin-bottom: 0;
+}
+.table img{
+	width: 20px;
+	height: 20px;	
+}
+.modal .alert-danger{
+	border-radius: 10px;
+	background: #343a40;
+	padding: 2px 10px;
+}
+.modal a{
+	color: white;
+}
+.modal a:hover{
+	color: red;
+	text-decoration: none;
+}

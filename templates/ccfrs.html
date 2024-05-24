@@ -1,0 +1,145 @@
+{% extends "base.html" %}
+
+{% block style %}
+    <style>
+        .container{
+			text-align: center;
+			position: absolute;
+			margin: 0;
+			top: 50%;
+			transform: translate(0%, -50%);
+            width: 100%;
+            max-width: 100%;
+            padding: 0 5px 0 5px;
+		}
+        h3{
+            color: white;
+            text-align: center;
+            padding: 10px;
+        }
+        h2{
+            text-decoration: underline;
+        }
+        img{
+            width: 50%;
+            height: 150px;
+        }
+        .alert-item{
+            border: 1px solid grey;
+        }
+        .alert-item table{
+            width: 100%;
+        }
+        .alert-item th{
+            text-align: left;
+            color: white;
+            background-color: #343a40;
+            width: 30%;
+        }
+        .alert-item td {
+            text-align: right;
+        }
+        .last-tr th{
+            text-align: center;
+        }
+        .last-tr button{
+            color: white;
+            background: dodgerblue;
+            border-radius: 20px;
+        }
+        @media all and (max-width:626px){
+            .row .col:first-child{
+                border-right: none;
+            }
+        }
+        @media all and (min-width:627px){
+            .row .col:first-child{
+                border-right: 1px solid grey;
+            }
+        }
+        @media all and (max-height:480px){
+            .container{
+                position: initial;
+			    margin: 20px 0 0 0;
+			    top: unset;
+			    transform: none
+            }
+        }
+    </style>
+{% endblock %}
+
+{% block nav %}{% endblock %}
+{% block title %} Admin {% endblock %}
+
+{% block content %}
+    <div class="bg-dark">
+        <h3>WELCOME ADMIN</h3>
+    </div>
+    <div class="row container">
+        <div class="col">
+            <h2>Feedback</h2>
+            {% if feeds %}
+                {% for feed in feeds %}
+                    <div class="alert-item">
+                        <table>
+                            <tbody>
+                                <tr>
+                                    <th>Email:</th>
+                                    <td>{{ feed.email }}</td>
+                                </tr>
+                                <tr>
+                                    <th>Message:</th>
+                                    <td>{{ feed.message }}</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <br>
+                {% endfor %}
+            {% else %}
+                <img src="{{ url_for('static', filename='media/feedback.png') }}" alt="Feedback logo">
+                <h5 class="text-primary">There is currently no feedback right now</h5>
+            {% endif %}
+        </div>
+        <div class="col">
+            <h2>Alerts</h2>
+            {% if alerts %}
+                {% for alert in alerts %}
+                    <div class="alert-item">
+                        <table>
+                            <tbody>
+                                <tr>
+                                    <th>Account number:</th>
+                                    <td>{{ alert.id }}</td>
+                                </tr>
+                                <tr>
+                                    <th>Fullname:</th>
+                                    <td>{{ alert.acc.fullname }}</td>
+                                </tr>
+                                <tr>
+                                    <th>Email:</th>
+                                    <td>{{ alert.acc.comms[0].email }}</td>
+                                </tr>
+                                <tr>
+                                    <th>Reason:</th>
+                                    <td>{{ alert.reason }}</td>
+                                </tr>
+                                <tr class="last-tr">
+                                    <th colspan="2">
+                                        <form action="/unblock/{{ alert.id }}" method="POST">
+                                            <button type="submit">Unblock</button>
+                                        </form>
+                                    </th>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <br>
+                {% endfor %}
+            {% else %}
+                <img src="{{ url_for('static', filename='media/alert.png') }}" alt="Alert logo">
+                <h5 class="text-primary">There are currently no requests for account auditing right now</h5>
+            {% endif %}
+        </div>
+	</div>
+{% endblock %}

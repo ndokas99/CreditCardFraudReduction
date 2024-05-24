@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+
+{% block title %} Create Account {% endblock %}
+
+{% block content %}
+    <div class="container">
+		<h1>CREATE ACCOUNT</h1>
+		<hr>
+		<form align="left" action="/create" method="POST">
+			<div class="form-group">
+				<label class="form-control-plaintext" for="idNum">National ID Number</label>
+				<input type="text" class="form-control" id="idNum" name="idNum" placeholder="Enter national id number" required>
+				<label class="form-control-plaintext" for="fullName">Fullname</label>
+				<input type="text" class="form-control" id="fullName" name="fullName" placeholder="Enter fullname" required>
+				<label class="form-control-plaintext" for="email">Email</label>
+				<input type="text" class="form-control" id="email" name="email" placeholder="Enter email" required>
+				<label class="form-control-plaintext" for="password1">Password</label>
+				<input type="password" class="form-control" id="password1" name="password1" placeholder="Enter password" required>
+				<label class="form-control-plaintext" for="password2">Confirm Password</label>
+				<input type="password" class="form-control" id="password2" name="password2" placeholder="Confirm password" required>
+				<br/>
+                <center>
+                    <button type="submit" class="btn btn-primary">Create</button>
+                </center>
+			</div>
+		</form>
+	</div>
+{% endblock %}
