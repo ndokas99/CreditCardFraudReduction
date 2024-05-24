@@ -16,8 +16,8 @@ settings = {
     "MAIL_PORT": 465,
     "MAIL_USE_TLS": False,
     "MAIL_USE_SSL": True,
-    "MAIL_USERNAME": "kudakwashe.ndokanga@students.uz.ac.zw",
-    "MAIL_PASSWORD": "R192098Z"
+    "MAIL_USERNAME": "<EMAIL>",
+    "MAIL_PASSWORD": "<PASSWORD>"
 }
 
 app = Flask(__name__)
